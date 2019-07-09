@@ -20,13 +20,23 @@ const ContainerTitle = styled.h2`
   margin-bottom: 0px;
 `;
 
+const Loading = styled.div`
+  color: #fff;
+`;
+
 const ThumbnailContainer = ({ movies }) => {
   return (
     <GridContainer>
-      <ContainerTitle>Popular Movies</ContainerTitle>
-      {movies.map(movie => (
-        <Thumbnail key={movie.id} movie={movie} />
-      ))}
+      {movies.length > 0 ? (
+        <>
+          <ContainerTitle>Popular Movies</ContainerTitle>
+          {movies.map(movie => (
+            <Thumbnail key={movie.id} movie={movie} />
+          ))}
+        </>
+      ) : (
+        <Loading>Loading...</Loading>
+      )}
     </GridContainer>
   );
 };

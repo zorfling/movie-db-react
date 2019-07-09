@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import ThumbnailContainer from './components/ThumbnailContainer';
 
-const AppWrapper = styled.div`
-  background: #081b23;
-`;
+import ThumbnailContainer from './components/ThumbnailContainer';
+import Search from './components/Search';
+import Logo from './components/Logo';
 
 const App = () => {
   const apiKey = '5bcd6828c355a3d1d04df87637510284';
@@ -22,13 +21,13 @@ const App = () => {
         .then(response => response.json())
         .catch(e => console.log(e));
 
-      const movies = data.results.map(movie => {
-        movie.poster_url =
+      const movies = data.results.map(movie => ({
+        ...movie,
+        poster_url:
           configuration.images.base_url +
           configuration.images.poster_sizes[2] +
-          movie.poster_path;
-        return movie;
-      });
+          movie.poster_path
+      }));
 
       setMovies(movies);
     };
@@ -36,7 +35,11 @@ const App = () => {
   }, []);
 
   return (
-    <AppWrapper>{movies && <ThumbnailContainer movies={movies} />}</AppWrapper>
+    <>
+      <Logo />
+      <Search placeholder="Search" />
+      {movies && <ThumbnailContainer movies={movies} />}
+    </>
   );
 };
 
