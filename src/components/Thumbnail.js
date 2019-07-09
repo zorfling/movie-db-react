@@ -27,11 +27,40 @@ const RoundedImage = styled.img`
   max-width: 100%;
 `;
 
+const ScorePill = styled.span`
+  background: ${props =>
+    Number.parseInt(props.children, 10) > 75
+      ? '#01d277'
+      : Number.parseInt(props.children, 10) > 50
+      ? '#4902a3'
+      : '#D1225B'};
+  border-radius: 8px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+
+  text-align: center;
+
+  color: #ffffff;
+  padding: 4px 8px;
+  position: absolute;
+  top: 4px;
+  left: 5px;
+`;
+
+const ThumbnailWrapper = styled.div`
+  position: relative;
+`;
+
 const Thumbnail = ({ movie }) => (
-  <div>
+  <ThumbnailWrapper>
     <RoundedImage src={movie.poster_url} alt="" />
     <Title>{movie.title}</Title>
     <ReleaseDate>{format(parse(movie.release_date), 'MMMM YYYY')}</ReleaseDate>
-  </div>
+    <ScorePill>{movie.vote_average * 10}%</ScorePill>
+  </ThumbnailWrapper>
 );
 export default Thumbnail;
