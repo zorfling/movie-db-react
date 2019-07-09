@@ -9,6 +9,7 @@ const App = () => {
   const apiKey = '5bcd6828c355a3d1d04df87637510284';
   const apiBase = 'https://api.themoviedb.org/3';
   const [movies, setMovies] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,8 +38,17 @@ const App = () => {
   return (
     <>
       <Logo />
-      <Search placeholder="Search" />
-      {movies && <ThumbnailContainer movies={movies} />}
+      <Search
+        placeholder="Search"
+        value={searchQuery}
+        onChange={elem => setSearchQuery(elem.target.value)}
+      />
+
+      <ThumbnailContainer
+        movies={movies.filter(elem =>
+          elem.title.toLowerCase().includes(searchQuery.toLowerCase())
+        )}
+      />
     </>
   );
 };

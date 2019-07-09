@@ -17,12 +17,13 @@ const SearchInput = styled.input`
   font-size: 14px;
   line-height: 44px;
   padding-left: 18px;
+  padding-right: 45px;
 
   ::placeholder {
     color: #01d277;
   }
 
-  width: calc(100% - 64px);
+  width: calc(100% - 115px);
 `;
 
 const SearchWrapper = styled.div`
@@ -36,13 +37,17 @@ const SearchIcon = styled.img`
   position: absolute;
   right: 30px;
   padding: 16px;
-  cursor: pointer;
 `;
 
-const Search = ({ placeholder }) => {
+const Search = ({ placeholder, value, onChange }) => {
   return (
     <SearchWrapper>
-      <SearchInput placeholder={placeholder} />
+      <SearchInput
+        placeholder={placeholder}
+        type="text"
+        value={value}
+        onChange={elem => onChange(elem)}
+      />
       <SearchIcon src={searchIcon} />
     </SearchWrapper>
   );
