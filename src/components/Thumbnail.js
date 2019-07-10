@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { format, parse } from 'date-fns';
+import { Link } from '@reach/router';
 
 const Title = styled.h2`
   font-family: Roboto;
@@ -51,12 +52,13 @@ const ScorePill = styled.span`
   left: 5px;
 `;
 
-const ThumbnailWrapper = styled.div`
+const ThumbnailWrapper = styled(Link)`
   position: relative;
+  text-decoration: none;
 `;
 
 const Thumbnail = ({ movie }) => (
-  <ThumbnailWrapper>
+  <ThumbnailWrapper to={`/movie/${movie.id}`}>
     <RoundedImage src={movie.poster_url} alt="" />
     <Title>{movie.title}</Title>
     <ReleaseDate>{format(parse(movie.release_date), 'MMMM YYYY')}</ReleaseDate>
