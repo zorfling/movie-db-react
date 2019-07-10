@@ -51,20 +51,20 @@ const Line3 = styled(Line)`
 
 const Line4 = styled(Line)`
   left: 74.4%;
-  right: -17.6%;
+  right: 5.26%;
   top: 2.68%;
   bottom: 96.97%;
 `;
 
 const Line5 = styled(Line)`
   left: 71.47%;
-  right: -14.67%;
+  right: -3.48%;
   top: 5.83%;
   bottom: 93.82%;
 `;
 
 const Line6 = styled(Line)`
-  left: 64.27%;
+  left: 53.27%;
   right: -7.47%;
   top: 16.61%;
   bottom: 83.04%;
