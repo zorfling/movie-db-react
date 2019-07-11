@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import searchIcon from './search.svg';
+import searchIcon from '../../images/search.svg';
 
 const SearchInput = styled.input`
   background: #ffffff;

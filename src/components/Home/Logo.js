@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import logo from '../tmdb-logo.svg';
+import logo from '../../images/tmdb-logo.svg';
 
 const LogoWrapper = styled.div`
   background: radial-gradient(

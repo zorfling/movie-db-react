@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import ThumbnailContainer from './ThumbnailContainer';
+import ThumbnailContainer from './MovieContainer';
 import Search from './Search';
 import Logo from './Logo';
-import { getPopularMovies } from '../api/movie';
+import { getPopularMovies } from '../../api/movie';
 
-const Listing = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -35,4 +35,4 @@ const Listing = () => {
   );
 };
 
-export default Listing;
+export default Home;

@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { Link } from '@reach/router';
 import { parse, format } from 'date-fns';
 
-import { getMovieById } from '../api/movie';
+import Loading from './Loading';
 
-import back from './back.svg';
+import { getMovieById } from '../../api/movie';
+
+import back from '../../images/back.svg';
 
 const Title = styled.h1`
   font-family: Montserrat;
@@ -97,7 +99,7 @@ const Detail = ({ movieId }) => {
     fetchData();
   }, []);
   return isLoading ? (
-    <div>Loading...</div>
+    <Loading />
   ) : (
     <>
       <Link to="/">

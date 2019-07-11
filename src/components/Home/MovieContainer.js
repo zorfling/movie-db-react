@@ -24,7 +24,7 @@ const Message = styled.div`
   color: #fff;
 `;
 
-const ThumbnailContainer = ({ movies }) => {
+const MovieContainer = ({ movies }) => {
   return (
     <GridContainer>
       <ContainerTitle>Popular Movies</ContainerTitle>
@@ -41,4 +41,4 @@ const ThumbnailContainer = ({ movies }) => {
   );
 };
 
-export default ThumbnailContainer;
+export default MovieContainer;
