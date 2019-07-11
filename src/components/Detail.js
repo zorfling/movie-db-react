@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
 import { parse, format } from 'date-fns';
+
+import { getMovieById } from '../api/movie';
+
 import back from './back.svg';
 
 const Title = styled.h1`
@@ -81,34 +84,12 @@ const formatRuntime = rawMinutes => {
 };
 
 const Detail = ({ movieId }) => {
-  const apiKey = '5bcd6828c355a3d1d04df87637510284';
-  const apiBase = 'https://api.themoviedb.org/3';
   const [movie, setMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const configuration = await fetch(
-        `${apiBase}/configuration?api_key=${apiKey}`
-      )
-        .then(response => response.json())
-        .catch(e => console.log(e));
-
-      const data = await fetch(`${apiBase}/movie/${movieId}?api_key=${apiKey}`)
-        .then(response => response.json())
-        .catch(e => console.log(e));
-
-      const movie = {
-        ...data,
-        poster_url:
-          configuration.images.base_url +
-          configuration.images.poster_sizes[1] +
-          data.poster_path,
-        backdrop_url:
-          configuration.images.base_url +
-          configuration.images.backdrop_sizes[1] +
-          data.backdrop_path
-      };
+      const movie = await getMovieById(movieId);
 
       setMovie(movie);
       setIsLoading(false);
