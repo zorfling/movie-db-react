@@ -4,23 +4,19 @@ import { format, parse } from 'date-fns';
 import { Link } from '@reach/router';
 
 const Title = styled.h2`
-  font-family: Roboto;
-  font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
-
   color: #e6f7ff;
+  margin: 0px 0px 6px;
 `;
 
 const ReleaseDate = styled.h3`
-  font-family: Roboto;
-  font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
-
   color: #a1d1e6;
+  margin: 0px 0px 6px;
 `;
 
 const RoundedImage = styled.img`
